@@ -7,7 +7,7 @@
   <script src="https://accounts.google.com/gsi/client" async defer></script>
   <style>
     :root{ 
-        --bg: #fffbf0; /* 浅米黄色背景 */
+        --bg: #fffbf0; /* 浅米黄色背景 (图片加载前的底色) */
         --card: #ffffff; 
         --accent: #f59e0b; /* 金橙色强调色 */
         --accent-dark: #b45309;
@@ -22,7 +22,15 @@
         margin: 0;
         font-family: "PingFang SC", "Microsoft YaHei", "Nunito", sans-serif;
         background-color: var(--bg);
-        background-image: radial-gradient(circle at 10% 20%, rgb(255, 251, 235) 0%, rgb(255, 247, 237) 90%);
+        
+        /* --- 修改处：设置线上背景图 --- */
+        background-image: url('https://static.vecteezy.com/system/resources/thumbnails/037/978/941/small_2x/ai-generated-a-colorful-children-s-store-sweet-decor-photo.jpg');
+        background-size: cover;       /* 确保铺满屏幕 */
+        background-position: center;  /* 图片居中 */
+        background-attachment: fixed; /* 滚动时背景固定 */
+        background-repeat: no-repeat;
+        /* --------------------------- */
+
         color: var(--text-main);
         height: 100vh;
         overflow-x: hidden;
@@ -286,10 +294,10 @@
   </style>
 
   <script>
-    // Web App URL (GAS)
-    const GAS_URL = "https://script.google.com/macros/s/AKfycbxmYyVnw2QR0eH-IlwkPmu2zhFlz8zy39fZy721l7Hw0jsDFVdDrLg2XU4GGwAkQpIz/exec";
+    // Web App URL (GAS) - 修改处：已更新
+    const GAS_URL = "https://script.google.com/macros/s/AKfycbyI2RBIXD-bx3TfhqPdgV891pBRS0zkhQLEXLQaPkwt2361_dmCT9UOSf0ewzTj9E94/exec";
     
-    // ⚠️ 课文内容：鱼米之乡——适耕庄 (已替换)
+    // ⚠️ 课文内容：鱼米之乡——适耕庄
     const sentences = [
       "从吉隆坡一路北上，来到鱼米之乡——适耕庄，我们都欢呼：真是个好地方！",
       "你看，一边是稻田，一边是渔村，多么特别。",
@@ -440,4 +448,5 @@
     };
   </script>
 </body>
+
 </html>
